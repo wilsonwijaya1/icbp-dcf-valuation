@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icbp-valuation"
+version = "0.1.0"
+description = "DCF valuation of PT Indofood CBP Sukses Makmur Tbk (ICBP) and an illustrative FX exposure study - educational analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["pandas", "numpy", "matplotlib", "openpyxl", "pyyaml"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
