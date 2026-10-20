@@ -1,0 +1,147 @@
+{
+  "sheet": "FCFF & DCF",
+  "cells": {
+    "nopat": {
+      "2023": "B18",
+      "2024": "C18",
+      "2025": "D18"
+    },
+    "delta_nwc": {
+      "2023": "B19",
+      "2024": "C19",
+      "2025": "D19"
+    },
+    "fcff": {
+      "2023": "B20",
+      "2024": "C20",
+      "2025": "D20"
+    },
+    "cost_of_equity": "B30",
+    "pretax_cost_of_debt": "B35",
+    "after_tax_cost_of_debt": "B37",
+    "market_cap": "B41",
+    "total_debt": "B42",
+    "weight_equity": "B44",
+    "weight_debt": "B45",
+    "wacc": "B46",
+    "terminal_growth": "B50",
+    "fcff_next": "B52",
+    "firm_value": "B54",
+    "net_debt": "B55",
+    "equity_value": "B56",
+    "shares_mn": "B57",
+    "intrinsic_value_per_share": "B58",
+    "market_price": "B59",
+    "premium_to_price": "B60"
+  },
+  "values": {
+    "nopat": {
+      "2023": 10879174.99,
+      "2024": 12497632.84,
+      "2025": 12339989.19
+    },
+    "delta_nwc": {
+      "2023": 5272810,
+      "2024": 7433536,
+      "2025": 5094940
+    },
+    "fcff": {
+      "2023": 5476824.99,
+      "2024": 4688173.842,
+      "2025": 5469915.186
+    },
+    "cost_of_equity": 0.0925,
+    "pretax_cost_of_debt": 0.04539227674,
+    "after_tax_cost_of_debt": 0.03528741868,
+    "market_cap": 89214300,
+    "total_debt": 47431527,
+    "weight_equity": 0.6528871167,
+    "weight_debt": 0.3471128833,
+    "wacc": 0.07264077594,
+    "terminal_growth": 0.05,
+    "fcff_next": 5743410.946,
+    "firm_value": 253675534.8,
+    "net_debt": 15808700,
+    "equity_value": 237866834.8,
+    "shares_mn": 11662,
+    "intrinsic_value_per_share": 20396.74454,
+    "market_price": 7650.0,
+    "premium_to_price": 1.666241117
+  },
+  "formulas": {
+    "nopat": {
+      "2023": 10879174.99,
+      "2024": 12497632.84,
+      "2025": 12339989.19
+    },
+    "delta_nwc": {
+      "2023": 5272810,
+      "2024": 7433536,
+      "2025": 5094940
+    },
+    "fcff": {
+      "2023": 5476824.99,
+      "2024": 4688173.842,
+      "2025": 5469915.186
+    },
+    "cost_of_equity": 0.0925,
+    "pretax_cost_of_debt": 0.04539227674,
+    "after_tax_cost_of_debt": 0.03528741868,
+    "market_cap": 89214300,
+    "total_debt": 47431527,
+    "weight_equity": 0.6528871167,
+    "weight_debt": 0.3471128833,
+    "wacc": 0.07264077594,
+    "terminal_growth": 0.05,
+    "fcff_next": 5743410.946,
+    "firm_value": 253675534.8,
+    "net_debt": 15808700,
+    "equity_value": 237866834.8,
+    "shares_mn": 11662,
+    "intrinsic_value_per_share": 20396.74454,
+    "market_price": 7650.0,
+    "premium_to_price": 1.666241117
+  },
+  "lk_sheet_reference": {
+    "ebit": {
+      "2023": 14820953,
+      "2024": 16446528,
+      "2025": 15873652
+    },
+    "effective_tax_rate": {
+      "2023": 0.2659598212,
+      "2024": 0.2401050944,
+      "2025": 0.2226118359
+    },
+    "net_income": {
+      "2023": 7013792,
+      "2024": 7207053,
+      "2025": 9224927
+    },
+    "ebitda": {
+      "2023": 16515243,
+      "2024": 18232734,
+      "2025": 17733088
+    },
+    "nwc_total_working_capital": {
+      "2023": 26309240,
+      "2024": 33742776,
+      "2025": 38837716
+    },
+    "net_debt": {
+      "2023": 22074201,
+      "2024": 17710323,
+      "2025": 15808700
+    },
+    "total_assets": {
+      "2023": 119267176,
+      "2024": 126040904,
+      "2025": 135544351
+    },
+    "total_liab_plus_equity": {
+      "2023": 119267076,
+      "2024": 125965383,
+      "2025": 135544351
+    }
+  }
+}

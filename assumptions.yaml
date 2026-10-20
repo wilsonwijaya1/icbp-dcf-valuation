@@ -1,0 +1,126 @@
+# =============================================================================
+# assumptions.yaml  -  single source of truth for every modelling assumption.
+# Edit values here and re-run `python -m icbp_valuation` (or the notebook).
+# Historical financial statements live in data/icbp_financials.yaml (data, not
+# assumptions). Units: IDR million unless stated. Rates are decimals.
+# =============================================================================
+
+valuation:
+  base_year: 2025               # last audited fiscal year; valuation date = 31 Dec 2025
+  forecast_years: 5             # FY2026E - FY2030E
+  discounting: end_year         # cash flows arrive at year end (same as the workbook's spirit)
+  headline_terminal_method: blend    # gordon | exit_multiple | blend
+  blend_weight_gordon: 0.5           # weight on the Gordon-growth value when method = blend
+
+# ----------------------------------------------------------------------------
+# Cost of capital. CAPM inputs are carried over unchanged from the course
+# workbook so the Python WACC ties to Excel. See README "Limitations": the
+# risk-free proxy is the BI policy rate, not a long-dated government yield.
+# ----------------------------------------------------------------------------
+wacc:
+  risk_free: 0.0475             # BI 7-Day Repo Rate, Dec 2025 (workbook input)
+  beta: 0.60                    # Damodaran Jan-2025 food processing, emerging markets (workbook input)
+  equity_risk_premium: 0.075    # Damodaran Jan-2025 Indonesia ERP (workbook input)
+  # Pre-tax cost of debt is DERIVED: FY2025 interest expense / FY2025 interest-bearing debt.
+  statutory_tax_rate: 0.22      # Indonesian corporate income tax rate; used by the extended model
+  # Capital-structure weights use market cap (price x shares) and book debt, as in the workbook.
+
+# ----------------------------------------------------------------------------
+# Course workbook replication. These are the workbook's own choices - including
+# the ones the audit flags as questionable - so the Python result can be
+# reconciled to the Excel result to the last digit.
+# ----------------------------------------------------------------------------
+workbook_replica:
+  terminal_growth: 0.05
+  tax_rate: effective_by_year   # NOPAT = EBIT x (1 - that year's effective tax rate)
+  nwc_definition: total_working_capital   # all current assets - all current liabilities (incl. cash and debt)
+  nwc_2022_estimate: 21036430   # hard-coded inside Excel formula 'FCFF & DCF'!B19; no source given
+  equity_bridge: net_debt_only  # Equity = EV - net debt (ignores NCI and associates)
+
+# ----------------------------------------------------------------------------
+# Extended model: 5-year explicit FCFF projection + terminal value.
+# wacc_adjustment: the workbook WACC (7.3%) is built from a policy-rate proxy for the
+# risk-free rate and a beta of 0.60, so it is low for a rupiah cash-flow stream. Base
+# adds +2.0pp (bull +1.0pp, bear +3.0pp) as an explicit, editable judgement. Setting
+# the base adjustment to 0 reproduces the workbook-consistent discount rate; the
+# WACC x g and WACC x multiple heat maps show the full range either way.
+# Driver anchors (computed from the historicals in data/icbp_financials.yaml):
+#   revenue CAGR FY23-25 = 4.99%      EBIT margin FY23/24/25 = 21.8% / 22.7% / 21.2%
+#   D&A / revenue        = 2.5%       capex / revenue FY23/24/25 = 2.7% / 3.0% / 4.9%
+#   operating NWC / rev  = 7.6% / 9.1% / 10.8%
+# These are ANALYST ASSUMPTIONS for an educational exercise, not forecasts.
+# ----------------------------------------------------------------------------
+extended:
+  da_pct_revenue: 0.025
+  scenarios:
+    base:
+      revenue_growth: [0.050, 0.050, 0.045, 0.045, 0.040]
+      ebit_margin:    [0.215, 0.215, 0.215, 0.215, 0.215]
+      capex_pct_revenue: [0.040, 0.038, 0.036, 0.035, 0.035]
+      nwc_pct_revenue: 0.108
+      terminal_growth: 0.040
+      exit_ev_ebitda: 7.0       # ~ market-implied multiple (see notebook), vs 6.85x quoted in the workbook
+      wacc_adjustment: 0.020    # additive shift to the computed WACC (see note below)
+    bull:
+      revenue_growth: [0.070, 0.070, 0.065, 0.060, 0.055]
+      ebit_margin:    [0.222, 0.224, 0.225, 0.225, 0.225]
+      capex_pct_revenue: [0.038, 0.035, 0.033, 0.032, 0.032]
+      nwc_pct_revenue: 0.100
+      terminal_growth: 0.045
+      exit_ev_ebitda: 8.5
+      wacc_adjustment: 0.010
+    bear:
+      revenue_growth: [0.020, 0.025, 0.025, 0.030, 0.030]
+      ebit_margin:    [0.205, 0.200, 0.200, 0.200, 0.200]
+      capex_pct_revenue: [0.045, 0.043, 0.040, 0.040, 0.040]
+      nwc_pct_revenue: 0.115
+      terminal_growth: 0.030
+      exit_ev_ebitda: 5.5
+      wacc_adjustment: 0.030
+
+# ----------------------------------------------------------------------------
+# Sensitivity grids (extended base case).
+# ----------------------------------------------------------------------------
+sensitivity:
+  wacc_deltas: [-0.020, -0.010, -0.005, 0.0, 0.005, 0.010, 0.015, 0.020, 0.030]   # added to base WACC
+  terminal_growth: [0.025, 0.030, 0.035, 0.040, 0.045, 0.050]
+  exit_multiples: [5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+
+# ----------------------------------------------------------------------------
+# Verification tolerance (Python replica vs cached Excel values).
+# ----------------------------------------------------------------------------
+verification:
+  relative_tolerance: 1.0e-9
+
+# =============================================================================
+# FX exposure case (module 2). FULLY ILLUSTRATIVE AND FICTIONAL: the company,
+# positions, spot levels, volatilities, correlations and interest rates below
+# are invented round numbers for teaching purposes. They are NOT market data and
+# NOT taken from any real firm.
+# =============================================================================
+fx_case:
+  company: "Illustrative Trading Co. (fictional)"
+  seed: 42
+  business_days_per_year: 252
+  horizon_days: 126             # simulated path length (~6 months) and hedge tenor
+  confidence: 0.99
+  spot_idr:   {USD: 16500.0, EUR: 18000.0, CNY: 2300.0, JPY: 110.0}   # IDR per 1 unit of FCY
+  annual_vol: {USD: 0.08, EUR: 0.10, CNY: 0.06, JPY: 0.11}
+  correlation:                  # order: USD, EUR, CNY, JPY
+    - [1.0, 0.5, 0.7, 0.3]
+    - [0.5, 1.0, 0.4, 0.4]
+    - [0.7, 0.4, 1.0, 0.3]
+    - [0.3, 0.4, 0.3, 1.0]
+  rates:      {IDR: 0.055, USD: 0.040, EUR: 0.025, CNY: 0.015, JPY: 0.005}   # simple annual, for CIP forwards
+  positions:                    # monetary items in foreign currency units
+    assets:
+      - {item: "Export receivable", ccy: USD, amount: 1200000}
+      - {item: "Export receivable", ccy: EUR, amount: 400000}
+    liabilities:
+      - {item: "Import payable (raw material)", ccy: CNY, amount: 18000000}
+      - {item: "Import payable (equipment)",    ccy: JPY, amount: 120000000}
+      - {item: "USD working-capital loan",      ccy: USD, amount: 300000}
+  hedging:
+    forward_hedge_ratio_partial: 0.5
+    natural_hedge_cny_reinvoiced: 8000000     # CNY of sales re-invoiced in CNY (offsets CNY payables)
+    mc_paths: 20000

@@ -1,0 +1,173 @@
+meta:
+  company: PT Indofood CBP Sukses Makmur Tbk
+  ticker: ICBP (IDX)
+  currency_unit: IDR million, except per-share data
+  fiscal_year_end: 31 December
+  source: ICBP annual reports / IDX filings
+  provenance_note: Figures are transcribed from a university Financial Management
+    workbook whose stated sources are the ICBP annual reports / IDX filings (indofoodcbp.com),
+    S&P Global MI via stockanalysis.com, and Yahoo Finance. They have not been re-audited
+    against the original filings by the repository author.
+income_statement:
+  revenue:
+    2023: 67909901.0
+    2024: 72597188.0
+    2025: 74850923.0
+  cogs:
+    2023: 42783641.0
+    2024: 45704099.0
+    2025: 48490503.0
+  selling_general_admin:
+    2023: 10328527.0
+    2024: 10574245.0
+    2025: 10694583.0
+  other_operating_income:
+    2023: 23220.0
+    2024: 127684.0
+    2025: 207815.0
+  interest_expense:
+    2023: 2024713.0
+    2024: 2142348.0
+    2025: 2153025.0
+  interest_and_investment_income:
+    2023: 707903.0
+    2024: 1038486.0
+    2025: 844766.0
+  share_of_associates:
+    2023: -2316445.0
+    2024: -1390219.0
+    2025: 236329.0
+  fx_gain_loss:
+    2023: 376169.0
+    2024: -2186266.0
+    2025: -965508.0
+  income_tax:
+    2023: 3075524.0
+    2024: 2825120.0
+    2025: 3080105.0
+  non_controlling_interest:
+    2023: 1474551.0
+    2024: 1734008.0
+    2025: 1531182.0
+  depreciation_amortization:
+    2023: 1694290.0
+    2024: 1786206.0
+    2025: 1859436.0
+  shares_outstanding_mn:
+    2023: 11662.0
+    2024: 11662.0
+    2025: 11662.0
+balance_sheet:
+  cash:
+    2023: 19353416.0
+    2024: 25292640.0
+    2025: 29216457.0
+  short_term_investments:
+    2023: 2334020.0
+    2024: 2417250.0
+    2025: 2406370.0
+  receivables:
+    2023: 7524408.0
+    2024: 8791747.0
+    2025: 10290594.0
+  inventories:
+    2023: 6329482.0
+    2024: 7059605.0
+    2025: 7998980.0
+  other_current_assets:
+    2023: 1232139.0
+    2024: 1106307.0
+    2025: 1241315.0
+  ppe_net:
+    2023: 14949266.0
+    2024: 15503793.0
+    2025: 17660426.0
+  long_term_investments:
+    2023: 8368853.0
+    2024: 6418825.0
+    2025: 7430623.0
+  goodwill:
+    2023: 54006155.0
+    2024: 54006155.0
+    2025: 54006155.0
+  other_intangibles:
+    2023: 1446078.0
+    2024: 1312840.0
+    2025: 1179602.0
+  other_noncurrent_assets:
+    2023: 3723359.0
+    2024: 4131742.0
+    2025: 4113829.0
+  trade_payables:
+    2023: 3773969.0
+    2024: 4101429.0
+    2025: 4567739.0
+  short_term_debt:
+    2023: 112500.0
+    2024: 185303.0
+    2025: 576929.0
+  current_portion_ltd:
+    2023: 455907.0
+    2024: 351952.0
+    2025: 304645.0
+  other_current_liabilities:
+    2023: 6121849.0
+    2024: 6286089.0
+    2025: 6866687.0
+  long_term_debt:
+    2023: 43193230.0
+    2024: 44882958.0
+    2025: 46549953.0
+  other_long_term_liabilities:
+    2023: 3505588.0
+    2024: 3113767.0
+    2025: 2995394.0
+  equity_parent:
+    2023: 40750169.0
+    2024: 45217376.0
+    2025: 51519743.0
+  non_controlling_equity:
+    2023: 21353864.0
+    2024: 21826509.0
+    2025: 22163261.0
+cash_flow:
+  noncash_and_wc_adjustments:
+    2023: 3730143.0
+    2024: 3589407.0
+    2025: 1020064.0
+  capex:
+    2023: 1823830.0
+    2024: 2162129.0
+    2025: 3634570.0
+  ppe_disposal_proceeds:
+    2023: 13626.0
+    2024: 16281.0
+    2025: 36049.0
+  other_investing:
+    2023: -2177600.0
+    2024: -106730.0
+    2025: -1101560.0
+  net_debt_proceeds:
+    2023: -1393673.0
+    2024: -627773.0
+    2025: -185615.0
+  dividends_paid:
+    2023: 2192439.0
+    2024: 2332382.0
+    2025: 2915477.0
+  other_financing:
+    2023: 1033673.0
+    2024: 1348311.0
+    2025: 1188959.0
+  fx_effect_on_cash:
+    2023: -195068.0
+    2024: 45286.0
+    2025: 809522.0
+market:
+  analysis_date: May 2026 (as recorded in the workbook)
+  share_price_idr: 7650.0
+  pe_trailing: 9.67
+  ev_ebitda_market_quoted: 6.85
+workbook_hardcodes:
+  nwc_2022_estimate_in_formula_B19: 21036430
+  note: Hard-coded inside formula 'FCFF & DCF'!B19; no source given.
